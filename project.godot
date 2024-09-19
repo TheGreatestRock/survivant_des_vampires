@@ -12,9 +12,14 @@ config_version=5
 
 config/name="Survivant Des Vampires"
 config/description="Enter an interesting project description here!"
+run/main_scene="res://scenes/level.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://icon.png"
 
 [dotnet]
 
 project/assembly_name="Survivant Des Vampires"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
