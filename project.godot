@@ -13,8 +13,12 @@ config_version=5
 config/name="Survivant Des Vampires"
 config/description="Enter an interesting project description here!"
 run/main_scene="res://scenes/level.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.3", "C#")
 config/icon="res://icon.png"
+
+[autoload]
+
+GameManager="*res://scripts/GameManager.cs"
 
 [dotnet]
 
