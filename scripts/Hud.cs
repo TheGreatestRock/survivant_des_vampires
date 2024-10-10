@@ -17,10 +17,10 @@ public partial class Hud : CanvasLayer
 	public override void _Ready()
 	{
 		// Get the button nodes (assuming their names are button1, button2, etc.)
-		button1 = GetNode<Button>("button1");
-		button2 = GetNode<Button>("button2");
-		button3 = GetNode<Button>("button3");
-		button4 = GetNode<Button>("button4");
+		button1 = GetNode<Button>("Button");
+		button2 = GetNode<Button>("Button2");
+		button3 = GetNode<Button>("Button3");
+		button4 = GetNode<Button>("Button4");
 
 		// Connect button signals to respective methods
 		button1.Pressed += _on_button_pressed;
@@ -44,12 +44,13 @@ public partial class Hud : CanvasLayer
 	// Method to save the game
 	private void _on_button_3_pressed()
 	{
-		GameManager.Get().GetSaveManager().SaveGame();
+		GameManager.Get().GetSaveManager().SaveGame(GetTree());
 	}
 
 	// Method to load the game
 	private void _on_button_4_pressed()
 	{
-		GameManager.Get().GetSaveManager().LoadGame();
+		GameManager.Get().GetSaveManager().LoadGame(GetTree());
 	}
+		
 }

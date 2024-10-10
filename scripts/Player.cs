@@ -37,6 +37,8 @@ public partial class Player : CharacterBody2D
 
 		Velocity = velocity;
 		MoveAndSlide();
+		
+		GD.Print(Position);
 	}
 	
 	public Godot.Collections.Dictionary<string, Variant> Save()
@@ -45,8 +47,8 @@ public partial class Player : CharacterBody2D
 		{
 			{ "Filename", SceneFilePath },
 			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X },
-			{ "PosY", Position.Y },
+			{ "PosX",  (int)Position.X },
+			{ "PosY",  (int)Position.Y },
 		};
 	}
 	
