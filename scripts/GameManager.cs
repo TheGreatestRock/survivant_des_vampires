@@ -19,6 +19,7 @@ public partial class GameManager : Node
 
 	public SaveManager GetSaveManager()
 	{
+		
 		return saveManager;
 	}
 
