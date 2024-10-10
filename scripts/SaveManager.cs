@@ -1,18 +1,7 @@
 using Godot;
 
-public class SaveManager
-{
-	public Godot.Collections.Dictionary<string, Variant> Save()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>()
-		{
-			{ "Filename", SceneFilePath },
-			{ "Parent", GetParent().GetPath() },
-			{ "PosX", Position.X }, // Vector2 is not supported by JSON
-			{ "PosY", Position.Y },
-		};
-	}
-	
+public partial class SaveManager : Node
+{	
 	public void SaveGame()
 	{
 		using var saveFile = FileAccess.Open("user://savegame.save", FileAccess.ModeFlags.Write);
@@ -31,12 +20,13 @@ public class SaveManager
 				GD.Print($"persistent node '{saveNode.Name}' is missing a Save() function, skipped");
 				continue;
 			}
-			
-			var nodeData = saveNode.Call("Save");
 
-			var jsonString = Json.Stringify(nodeData);
+			var saveData = saveNode.Call("Save");
+			var json = new Json();
+			json.Data = saveData;
+			saveFile.StoreLine(json.ToString());
 
-			saveFile.StoreLine(jsonString);
+			GD.Print($"Saved {saveNode.Name}");
 		}
 	}
 	

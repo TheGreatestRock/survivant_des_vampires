@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8irpo2p8ldbo"]
+
+[ext_resource type="Script" path="res://scripts/Hud.cs" id="1_dhq1n"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_dhq1n")
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 0)
+offset_left = 34.0
+offset_top = 31.0
+offset_right = 67.0
+offset_bottom = 39.0
+text = "level_blue"
+
+[node name="Button2" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 0)
+offset_left = 134.0
+offset_top = 32.0
+offset_right = 167.0
+offset_bottom = 40.0
+text = "level_red"
+
+[node name="Button3" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 0)
+offset_left = 34.0
+offset_top = 75.0
+offset_right = 124.0
+offset_bottom = 106.0
+text = "save"
+
+[node name="Button4" type="Button" parent="."]
+custom_minimum_size = Vector2(90, 0)
+offset_left = 134.0
+offset_top = 75.0
+offset_right = 224.0
+offset_bottom = 106.0
+text = "load "
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="Button4" to="." method="_on_button_4_pressed"]
